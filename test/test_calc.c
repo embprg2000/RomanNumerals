@@ -5,7 +5,11 @@
 
 START_TEST(test_numeral2value)
 {
-	ck_assert_int_eq(numeral2value("VI"), 6);
+	//ck_assert_int_eq( numeral2value("V"),  3);	
+	ck_assert_int_eq( numeral2value("VI"), 6);
+	ck_assert_int_eq( numeral2value("LXVII"),     67);
+	ck_assert_int_eq( numeral2value("MMCMXCI"),   2991);
+	ck_assert_int_eq( numeral2value("MMCMXCVII"), 2997);
 }
 END_TEST
 
@@ -14,7 +18,7 @@ Suite * money_suite(void)
     Suite *s;
     TCase *tc_core;
 
-    s = suite_create("Money");
+    s = suite_create("Roman Numerals");
 
     /* Core test case */
     tc_core = tcase_create("Core");
