@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "roman_numeral.h"
+#include "roman_numerals.h"
 
 int main(int argc, char **argv)
 {
