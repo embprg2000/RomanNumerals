@@ -62,7 +62,45 @@ short  numeral2value(const char* str)
 
 short  value2numeral(short val, char* ret, int retLen)
 {
-	strcpy(ret, "???");
+	int i = 0;
+	char* ptr;
+	int len;
+	char* mil = "MMMMMMMMMMMMMMM";
+	char* map1[]   = {"","I","II","III","IV","V","VI","VII", "VIII", "IX","X"};
+	char* map10[]  = {"","X","XX","XXX","XL","L","LX","LXX", "LXXX", "XC","C"};
+	char* map100[] = {"","C","CC","CCC","CD","D","DC","DCC", "DCCC", "CM","M"};
+
+	memset((void*) ret, 0, retLen);
+	while (val > 0)
+	{
+		short n = val % 10;
+
+		switch (i)
+		{
+		case 0:
+			ptr = map1[n];
+			break;
+		case 1:
+			ptr = map10[n];
+			break;
+		case 2:
+			ptr = map100[n];
+			break;
+		case 3:
+			ptr = &mil[ strlen(mil) - n];
+			break;
+		}
+
+		len = strlen(ptr);
+
+		memcpy( &ret[retLen-len-1], ptr, len);
+		retLen -= len;
+
+		val /= 10;
+		++i;
+	}
+
+	memmove (ret, &ret[retLen-1], retLen+1);
 	return 0;
 }
 
