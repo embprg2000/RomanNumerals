@@ -1,8 +1,8 @@
 #ifndef _ROMAN_NUMERAL__
 #define _ROMAN_NUMERAL__
 
-char*  value2numeral(short val);
-short  numeral2value(const char* str);
-char*  calculate(char* lhs, char addSub, char* rhs);
+short value2numeral(short val, char* ret, int retLen);
+short numeral2value(const char* str);
+short calculate(char* lhs, char addSub, char* rhs, char* ret, int retLen);
 
 #endif

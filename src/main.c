@@ -7,6 +7,7 @@ int main(int argc, char **argv)
 	char *lhs;
 	char *rhs;	
 	char addSub;
+	char buff[50];
 
 	if (argc != 4) {
 		fprintf(stderr, "Usage: %s ROMAN_NUMERAL [+-] ROMAN_NUMERAL\n", argv[0]);
@@ -22,7 +23,8 @@ int main(int argc, char **argv)
 		return EXIT_FAILURE;
 	}
 
-	printf("%s\n", calculate(lhs, addSub, rhs));
+	calculate(lhs, addSub, rhs, buff, 50);
+	printf("%s\n", buff);
 
 	return EXIT_SUCCESS;
 }

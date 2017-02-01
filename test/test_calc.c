@@ -13,6 +13,27 @@ START_TEST(test_numeral2value)
 }
 END_TEST
 
+START_TEST(test_value2numeral)
+{
+	char buff[20];
+	
+	value2numeral(8, buff, 20);
+	ck_assert_str_eq(buff, "VIII");
+	
+	value2numeral(6, buff, 20);	
+	ck_assert_str_eq(buff, "VI");
+	
+	value2numeral(67, buff, 20);
+	ck_assert_str_eq(buff, "LXVII");
+	
+	value2numeral(2991, buff, 20);
+	ck_assert_str_eq(buff, "MMCMXCI");
+	
+	value2numeral(2997, buff, 20);
+	ck_assert_str_eq(buff, "MMCMXCVII");
+}
+END_TEST
+
 Suite * money_suite(void)
 {
     Suite *s;
@@ -24,6 +45,7 @@ Suite * money_suite(void)
     tc_core = tcase_create("Core");
 
     tcase_add_test(tc_core, test_numeral2value);
+    tcase_add_test(tc_core, test_value2numeral);
     suite_add_tcase(s, tc_core);
 
     return s;

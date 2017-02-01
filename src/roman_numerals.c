@@ -60,22 +60,24 @@ short  numeral2value(const char* str)
 	return val;
 }
 
-char*  value2numeral(short val)
+short  value2numeral(short val, char* ret, int retLen)
 {
-	return "Not jet";
+	strcpy(ret, "???");
+	return 0;
 }
 
-char* calculate(char* lhs, char addSub, char* rhs)
+short calculate(char* lhs, char addSub, char* rhs, char* ret, int retLen)
 {
 	short lhsVal;
 	short rhsVal;
-	
+
 	lhsVal = numeral2value(lhs);
 	rhsVal = numeral2value(rhs);
-	
+
 	// Validity check of addSub character was done in main.
-	if (addSub == '+')	
-		return value2numeral(lhsVal + rhsVal);
+	if (addSub == '+')
+		value2numeral(lhsVal + rhsVal, ret, retLen);
 	else
-		return value2numeral(lhsVal - rhsVal);
+		value2numeral(lhsVal - rhsVal, ret, retLen);
+	return 0;
 }
