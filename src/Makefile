@@ -17,5 +17,7 @@ clean:
 
 roman_calc: main.o roman_numerals.o libroman_numerals.a
 	$(CC) $(CFLAGS) -o $@ $^ -L. -lroman_numerals
+	./roman_calc XLIV + VII
+	./roman_calc aa + VII
 
 roman_numerals.c: roman_numerals.h

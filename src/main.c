@@ -4,27 +4,25 @@
 
 int main(int argc, char **argv)
 {
-	char *lhs;
-	char *rhs;	
-	char addSub;
-	char buff[50];
+    char *lhs;
+    char *rhs;  
+    char addSub;
 
-	if (argc != 4) {
-		fprintf(stderr, "Usage: %s ROMAN_NUMERAL [+-] ROMAN_NUMERAL\n", argv[0]);
-		return EXIT_FAILURE;
-	}
+    if (argc != 4) {
+        fprintf(stderr, "Usage: %s ROMAN_NUMERAL [+-] ROMAN_NUMERAL\n", argv[0]);
+        return EXIT_FAILURE;
+    }
 
-	lhs = argv[1];
-	rhs = argv[3];
-	addSub = argv[2][0];
+    lhs = argv[1];
+    rhs = argv[3];
+    addSub = argv[2][0];
 
-	if (addSub != '-' && addSub != '+') {
-		fprintf(stderr, "Error: operator must be + or -\n");
-		return EXIT_FAILURE;
-	}
+    if (addSub != '-' && addSub != '+') {
+        fprintf(stderr, "Error: operator must be + or -\n");
+        return EXIT_FAILURE;
+    }
 
-	calculate(lhs, addSub, rhs, buff, 50);
-	printf("%s\n", buff);
+    printf("%s %c %s = %s\n", lhs, addSub, rhs, calculate(lhs, addSub, rhs) );
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
